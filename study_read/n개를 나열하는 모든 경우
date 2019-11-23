@@ -1,0 +1,21 @@
+swap(char &c1,char &c2)
+{
+    char temp=c1;
+    c1=c2;
+    c2=temp;
+}
+
+void cases (char p[],int s,int e)
+{
+    static int count=0;
+
+    if (s==e)
+        printf ("%d \t %s \n",++count,p);
+    else
+        for (char i=s;i<=e;i++)
+        {
+            swap(p[s],p[i]);
+            cases (p,s+1,e);
+            swap(p[s],p[i]);
+        }
+}
