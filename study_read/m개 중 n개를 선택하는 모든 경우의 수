@@ -1,0 +1,18 @@
+void pick(vector<int> &picked, int topick){
+	int i;
+	if(topick==0){
+		for(i=0; i<m; i++){
+			list[list_size].push_back(picked[i]);
+		}
+		list_size++;
+	}
+
+	int smallest;
+	if(picked.size()==0) smallest = 0;
+	else smallest = picked.back()+1;
+	for(i=smallest; i<vnum; i++){
+		picked.push_back(i);
+		pick(picked, topick-1);
+		picked.pop_back();
+	}
+}
